@@ -1056,6 +1056,14 @@ proc setGammaRamp*(monitor: GLFWMonitor, ramp: ptr GLFWGammaRamp): void {.glfw_l
   ## For gamma correct rendering with OpenGL or OpenGL ES, see the
   ## GLFW_SRGB_CAPABLE hint.
 
+proc setWindowUserPointer*(window: GLFWWindow, `ptr`: pointer): void {.glfw_lib, importc: "glfwSetWindowUserPointer".}
+## This function sets the user-defined pointer of the specified window.
+## The current value is retained until the window is destroyed.
+## The initial value is ``nil``.
+
+proc getWindowUserPointer*(window: GLFWWindow): pointer {.glfw_lib, importc: "glfwGetWindowUserPointer".}
+## This function returns the current value of the user-defined pointer of the
+## specified window. The initial value is ``nil``.
 
 when defined(windows):
   proc getWin32Window*(window: GLFWWindow): pointer {.glfw_lib, importc: "glfwGetWin32Window".}
